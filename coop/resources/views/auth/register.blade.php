@@ -2,6 +2,10 @@
     <form class="row g-3" method="POST" action="{{ route('register') }}">
         @csrf
 
+        <div class="d-flex justify-content-center">
+            <img width="150" src="{{asset('/logo/profile-user.png')}}">
+        </div>
+
         <!-- Image -->
         <div>
             <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" required autofocus autocomplete="image" />
@@ -51,7 +55,7 @@
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
-                            
+
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 

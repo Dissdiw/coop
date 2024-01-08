@@ -1,4 +1,3 @@
-<svg viewBox="0 0 316 316" xmlns="http://www.w3.org/2000/svg" {{ $attributes }}>
-    <img width="150" src="{{asset('/logo/IPTM logo.jpg')}}">
-</svg>
-
+<div>
+    <img width="100" src="{{asset('/logo/IPTM logo2.png')}}">
+</div>
