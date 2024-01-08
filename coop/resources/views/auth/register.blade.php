@@ -4,8 +4,7 @@
 
         <!-- Image -->
         <div>
-            <x-input-label for="image" :value="__('Profile')" />
-            <x-text-input id="image" class="block mt-1 w-full" type="text" name="image" :value="old('image')" required autofocus autocomplete="image" />
+            <x-text-input id="image" class="block mt-1 w-full" type="file" name="image" :value="old('image')" required autofocus autocomplete="image" />
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
         </div>
 
@@ -52,7 +51,7 @@
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
-
+                            
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 

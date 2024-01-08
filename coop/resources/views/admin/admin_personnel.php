@@ -1,27 +1,3 @@
-<?php
-    session_start();
-    require_once 'config/db.php';
-
-    if(!isset($_SESSION['admin_login'])){
-        header('location: index.php');
-    }
-
-    if(isset($_SESSION['admin_login'])){
-        $admin_id = $_SESSION['admin_login'];
-        $query_stmt = $conn->prepare("SELECT * FROM users WHERE id = $admin_id");
-        $query_stmt->execute();
-        $row = $query_stmt->fetch(PDO::FETCH_ASSOC);
-        $firstname = $row['firstname'];
-        $lastname = $row['lastname'];
-        $studentid = $row['studentid'];
-        $password = $row['password'];
-        $email = $row['email'];
-        $phoneno= $row['phoneno'];
-        $urole= $row['urole'];
-        $image= $row['image'];
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
