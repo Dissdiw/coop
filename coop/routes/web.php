@@ -32,7 +32,10 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','urole:admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index']);
+}); 
+
+Route::middleware(['auth','urole:teacher'])->group(function () {
     Route::get('teacher/dashboard', [TeacherController::class, 'index']);
 });
