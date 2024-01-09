@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanel\AdminController;
+use App\Http\Controllers\TeacherPanel\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('admin/dashboard', [AdminController::class, 'index']);
+    Route::get('teacher/dashboard', [TeacherController::class, 'index']);
+});
