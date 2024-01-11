@@ -139,7 +139,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <a href="index.php" class="btn btn-primary">Logout</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        </form>
                     </div>
                     </div>
                 </div>
