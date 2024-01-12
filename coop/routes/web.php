@@ -34,7 +34,7 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth','urole:admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-}); 
+});
 
 Route::middleware(['auth','urole:teacher'])->group(function () {
     Route::get('teacher/dashboard', [TeacherController::class, 'index'])->name('teacher.dashboard');

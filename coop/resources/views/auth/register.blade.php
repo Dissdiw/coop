@@ -37,7 +37,7 @@
         <div class="col-6 mt-4">
             <x-input-label for="phoneno" :value="__('Phone number')" />
             <x-text-input id="phoneno" class="block mt-1 w-full" type="text" name="phoneno" :value="old('phoneno')" required autocomplete="phoneno" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-input-error :messages="$errors->get('phoneno')" class="mt-2" />
         </div>
 
          <!-- Userid -->
