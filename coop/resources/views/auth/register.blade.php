@@ -42,9 +42,9 @@
 
          <!-- Userid -->
          <div class="mt-4">
-            <x-input-label for="studentid" :value="__('Studentid')" />
-            <x-text-input id="studentid" class="block mt-1 w-full" type="text" name="studentid" :value="old('studentid')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('studentid')" class="mt-2" />
+            <x-input-label for="userid" :value="__('Student')" />
+            <x-text-input id="userid" class="block mt-1 w-full" type="text" name="userid" :value="old('userid')" required autofocus autocomplete="userid" />
+            <x-input-error :messages="$errors->get('userid')" class="mt-2" />
         </div>
 
         <!-- Password -->
