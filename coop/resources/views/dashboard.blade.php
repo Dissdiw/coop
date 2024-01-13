@@ -73,79 +73,10 @@
                         <img class="navbar-profile-image" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Image">
                     </div>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>
+                        <li><a href="{{route('profile.edit')}}" class="dropdown-item">Profile</a></li>
                         <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
                     </ul>
                 </div>
-
-                <!-- start: profile Modal -->
-                <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="profileModalLabel">Profile</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-center mb-3">
-                        <img class="edit-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="image">
-                        </div>
-                        <div class="d-flex justify-content-center">
-                        <input type="file" id="file" name="file" accept="" >
-                        </div>
-                        <form id="send-verification" method="post" action="{{ route('verification.send') }}">
-                            @csrf
-                        </form>
-
-                        <form method="post" action="{{ route('profile.update') }}">
-                            @csrf
-                            @method('patch')
-                            @foreach ($user as $user)
-                            <div class="duo">
-                                <div class="me-4 mb-3">
-                                    <label for="firstname" class="col-form-label">ชื่อ:</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname">
-                                    <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="lastname" class="col-form-label">นามสกุล:</label>
-                                    <input type="text" class="form-control" id="lastname" name="lastname" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname">
-                                    <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
-                                </div>
-                            </div>
-                            <div class="duo">
-                                <div class="me-4 mb-3">
-                                    <label for="personnelid" class="col-form-label">รหัสประจำตัว:</label>
-                                    <input type="text" class="form-control" id="userid" name="userid" :value="old('userid', $user->userid)" required autofocus autocomplete="userid" disabled>
-                                    <x-input-error class="mt-2" :messages="$errors->get('userid')" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="col-form-label">Password:</label>
-                                    <input type="text" class="form-control" id="password">
-                                </div>
-                            </div>
-                            <div class="duo">
-                                <div class="me-4 mb-3">
-                                    <label for="email" class="col-form-label">Email:</label>
-                                    <input type="text" class="form-control" id="email" name="email" :value="old('email', $user->email)" required autofocus autocomplete="email" />
-                                    <x-input-error class="mt-2" :messages="$errors->get('email')" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="phoneno" class="col-form-label">เบอร์โทรศัพท์:</label>
-                                    <input type="text" class="form-control" id="phoneno" name="phoneno" :value="old('phoneno', $user->phoneno)" required autofocus autocomplete="phoneno">
-                                </div>
-                            </div>
-                            @endforeach
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <!-- end: profile Modal -->
 
                 <!-- start: logout Modal -->
                 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">

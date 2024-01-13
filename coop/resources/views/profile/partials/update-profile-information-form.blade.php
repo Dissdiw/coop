@@ -18,9 +18,20 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->firstname)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-input-label for="studentid" :value="__('Student ID')" />
+            <x-text-input id="userid" name="userid" type="text" class="mt-1 block w-full" :value="old('userid', $user->userid)" disabled />
+        </div>
+
+        <div>
+            <x-input-label for="firstname" :value="__('Firstname')" />
+            <x-text-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname" />
+            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
+        </div>
+
+        <div>
+            <x-input-label for="lastname" :value="__('Lastname')" />
+            <x-text-input id="lastname" name="lastname" type="text" class="mt-1 block w-full" :value="old('lastname', $user->lastname)" required autofocus autocomplete="lastname" />
+            <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
         </div>
 
         <div>
@@ -45,6 +56,12 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <div>
+            <x-input-label for="phoneno" :value="__('Phone no.')" />
+            <x-text-input id="phoneno" name="phoneno" type="text" class="mt-1 block w-full" :value="old('phoneno', $user->phoneno)" required autofocus autocomplete="phoneno" />
+            <x-input-error class="mt-2" :messages="$errors->get('phoneno')" />
         </div>
 
         <div class="flex items-center gap-4">
