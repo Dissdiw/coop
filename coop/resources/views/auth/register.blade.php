@@ -1,15 +1,15 @@
 <x-guest-layout>
-    <form class="row g-3" method="POST" action="{{ route('register') }}">
+    <form class="row g-3" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="d-flex justify-content-center">
-            <img width="150" src="{{asset('/logo/profile-user.png')}}">
+            <img style="border-radius: 50%;  width: 10rem; height: 10rem; object-fit: cover;" src="{{asset('/logo/profile-user.png')}}" id="img" alt="preview">
         </div>
 
         <!-- Image -->
         <div>
-            <x-text-input id="image" class="block mt-1 w-full border" type="file" name="image" :value="old('image')" required autofocus autocomplete="image" />
-            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+            <x-text-input id="fileImg" class="block mt-1 w-full border" type="file" name="fileImg" :value="old('fileImg')" accept="image/png, image/jpeg, image/jpg" required autofocus autocomplete="fileImg" />
+            <x-input-error :messages="$errors->get('fileImg')" class="mt-2" />
         </div>
 
         <!-- Firstname -->
@@ -23,7 +23,7 @@
         <div class="col-6 mt-4">
             <x-input-label for="lastname" :value="__('Lastname')" />
             <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
@@ -42,7 +42,7 @@
 
          <!-- Userid -->
          <div class="mt-4">
-            <x-input-label for="userid" :value="__('Student')" />
+            <x-input-label for="userid" :value="__('Student ID')" />
             <x-text-input id="userid" class="block mt-1 w-full" type="text" name="userid" :value="old('userid')" required autofocus autocomplete="userid" />
             <x-input-error :messages="$errors->get('userid')" class="mt-2" />
         </div>
@@ -80,4 +80,15 @@
             </x-primary-button>
         </div>
     </form>
+
+    <script type="text/javascript">
+      // Preview
+      fileImg.onchange = evt => {
+        const [file] = fileImg.files
+        if (file) {
+          img.src = URL.createObjectURL(file)
+        }
+      }
+    </script>
+
 </x-guest-layout>

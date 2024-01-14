@@ -30,17 +30,33 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+
+
         $request->validate([
             'userid' => ['required', 'string', 'max:13', 'unique:'.User::class],
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'phoneno' => ['required', 'string', 'max:10'],
-            'image' => ['required', 'string', 'max:255'],
+            'fileImg' => ['required'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            
         ],[
             'userid.unique' => 'The Student ID has already been taken.'
         ]);
+
+        // dd($filename);
+
+        $filename = '' ;
+
+        if ($request->hasFile('fileImg')) {
+
+            $filename = $request->getSchemeAndHttpHost() . '/img/' . time() . '.' . $request->fileImg->extension();
+
+            $request->fileImg->move(public_path('/img/'), $filename);
+
+        }
 
         $user = User::create([
             'userid' => $request->userid,
@@ -48,7 +64,7 @@ class RegisteredUserController extends Controller
             'lastname' => $request->lastname,
             'email' => $request->email,
             'phoneno' => $request->phoneno,
-            'image' => $request->image,
+            'image' => $filename,
             'password' => Hash::make($request->password),
         ]);
 

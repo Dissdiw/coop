@@ -18,6 +18,11 @@
         @method('patch')
 
         <div>
+            <x-text-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname" />
+            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
+        </div>
+
+        <div>
             <x-input-label for="studentid" :value="__('Student ID')" />
             <x-text-input id="userid" name="userid" type="text" class="mt-1 block w-full" :value="old('userid', $user->userid)" disabled />
         </div>
@@ -78,4 +83,5 @@
             @endif
         </div>
     </form>
+
 </section>
