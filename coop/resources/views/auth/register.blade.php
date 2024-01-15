@@ -2,11 +2,11 @@
     <form class="row g-3" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
+        <!-- Image -->
         <div class="d-flex justify-content-center">
             <img style="border-radius: 50%;  width: 10rem; height: 10rem; object-fit: cover;" src="{{asset('/logo/profile-user.png')}}" id="img" alt="preview">
         </div>
 
-        <!-- Image -->
         <div>
             <x-text-input id="fileImg" class="block mt-1 w-full border" type="file" name="fileImg" :value="old('fileImg')" accept="image/png, image/jpeg, image/jpg" required autofocus autocomplete="fileImg" />
             <x-input-error :messages="$errors->get('fileImg')" class="mt-2" />

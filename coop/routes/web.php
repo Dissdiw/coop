@@ -20,6 +20,48 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin/company', function () {
+    return view('admin.admin_com');
+});
+
+Route::get('/admin/student', function () {
+    return view('admin.admin_std');
+});
+
+Route::get('/admin/personnel', function () {
+    return view('admin.admin_personnel');
+});
+
+Route::get('/admin/regisce', function () {
+    return view('admin.admin_regis_ce');
+});
+
+Route::get('/admin/report', function () {
+    return view('admin.admin_rp_ce');
+});
+
+Route::get('/admin/sv', function () {
+    return view('admin.admin_sv');
+});
+
+Route::get('/company', function () {
+    return view('student.student_com');
+});
+
+Route::get('/regisce', function () {
+    return view('student.student_regis_ce');
+});
+
+Route::get('/report', function () {
+    return view('student.student_rp_ce');
+});
+
+Route::get('/teacher/sv', function () {
+    return view('teacher.admin_sv');
+});
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -17,9 +17,13 @@
         @csrf
         @method('patch')
 
+        <div class="d-flex justify-content-center">
+            <img style="border-radius: 50%;  width: 10rem; height: 10rem; object-fit: cover;" src="{{$user->image}}" id="img" alt="preview">
+        </div>
+
         <div>
-            <x-text-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" :value="old('firstname', $user->firstname)" required autofocus autocomplete="firstname" />
-            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
+            <x-text-input id="fileImg" class="block mt-1 w-full border" type="file" name="fileImg" :value="old('fileImg')" accept="image/png, image/jpeg, image/jpg" required autofocus autocomplete="fileImg" />
+            <x-input-error :messages="$errors->get('fileImg')" class="mt-2" />
         </div>
 
         <div>
@@ -83,5 +87,15 @@
             @endif
         </div>
     </form>
+
+    <script type="text/javascript">
+      // Preview
+      fileImg.onchange = evt => {
+        const [file] = fileImg.files
+        if (file) {
+          img.src = URL.createObjectURL(file)
+        }
+      }
+    </script>
 
 </section>

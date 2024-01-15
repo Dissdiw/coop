@@ -30,47 +30,47 @@
             </div>
             <ul class="sidebar-menu p-3 m-0 mb-0">
                 <li class="sidebar-menu-item active">
-                    <a href="#">
+                    <a href="{{ url('/admin/dashboard') }}">
                         <i class="ri-flow-chart sidebar-menu-item-icon"></i>
                         ขั้นตอนสหกิจศึกษา
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/company') }}">
                         <i class="ri-search-line sidebar-menu-item-icon"></i>
                         ข้อมูลสถานประกอบการ
                     </a>
                     
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/student') }}">
                         <i class="ri-user-search-line sidebar-menu-item-icon"></i>
                         ข้อมูลนักศึกษา
                     </a>
                     
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/personnel') }}">
                         <i class="ri-user-search-line sidebar-menu-item-icon"></i>
                         ข้อมูลบุคลากร
                     </a>
                     
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/regisce') }}">
                         <i class="ri-user-add-line sidebar-menu-item-icon"></i>
                         สมัครโครงการสหกิจ
                     </a>
                     
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/report') }}">
                         <i class="ri-file-add-line sidebar-menu-item-icon"></i>
                         รายงานปฏิบัติงานสหกิจ
                     </a>
                 </li>
                 <li class="sidebar-menu-item">
-                    <a href="#">
+                    <a href="{{ url('/admin/sv') }}">
                         <i class="ri-settings-4-line sidebar-menu-item-icon"></i>
                         นิเทศ
                     </a>
@@ -107,7 +107,7 @@
                         <h1 class="modal-title fs-5" id="profileModalLabel">Profile</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action=">" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
                         <div class="d-flex justify-content-center mb-3 preview">
                             <img class="edit-profile" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" id="img" alt="preview">

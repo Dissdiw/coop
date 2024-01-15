@@ -30,32 +30,31 @@
         </div>
         <ul class="sidebar-menu p-3 m-0 mb-0">
             <li class="sidebar-menu-item active">
-                <a href="student.php">
+                <a href="{{ url('/dashboard') }}">
                     <i class="ri-flow-chart sidebar-menu-item-icon"></i>
                     ขั้นตอนสหกิจศึกษา
                 </a>
             </li>
             <li class="sidebar-menu-item">
-                <a href="student_com.php">
+                <a href="{{ url('/company') }}">
                     <i class="ri-search-line sidebar-menu-item-icon"></i>
                     ค้นหาสถานประกอบการ
                 </a>
             </li>
             <li class="sidebar-menu-item">
-                <a href="student_regis_ce.php">
+                <a href="{{ url('/regisce') }}">
                     <i class="ri-user-add-line sidebar-menu-item-icon"></i>
                     สมัครโครงการสหกิจ
                 </a> 
             </li>
-            <li class="sidebar-menu-item" id="hide">
-                <a href="student_rp_ce.php">
+            <li class="sidebar-menu-item">
+                <a href="{{ url('/report') }}">
                     <i class="ri-file-add-line sidebar-menu-item-icon"></i>
                     รายงานปฏิบัติงานสหกิจ
                 </a>
             </li>
         </ul>
     </div>
-    <div class="sidebar-overlay"></div>
 
     <!-- end: Sidebar -->
 
